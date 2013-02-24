@@ -14,40 +14,121 @@
 		width: 612px;
 		border: 5px solid black;
 		box-shadow: 3px 3px 4px #000;
+        background-image: url("parchment.jpg");
   }
     .navbar {
-        background-image: url("parchment.jpg");
         width:100%;
         border-top:1px solid black;
         border-bottom: 1px solid black;
+      text-align: center;
     }
     .navbar .navitem {
         padding: 0px 10px;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
+        /*border-left: 1px solid black;*/
+        /*border-right: 1px solid black;*/
+        font-size: +20;
+        text-decoration: underline;
     }
     .navbar .navitem.active {
         background-image: url("active-parchment.jpg");
     }
+    .thumb {
+        width: 80px;
+        padding: 3px;
+        background-image: parchment.jpg;
+      }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      padding: 0;
+    }
 	</style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $(".contentpane").tabs();
+    $(".contentpane").bind("tabsactivate", function(event, ui) {
+      history.pushState(null, null, "#"+ui.newPanel.attr("id"));
+    });
+  })
+  </script>
 	<title>Songs of the Victorians</title>
 	<meta name="description" content="Songs of the Victorians is an archive of parlor and art song settings of Victorian poems.">
 </head>
 <body>
 	<div class="centered">
 		<img src="splash-top.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
-        <div class="navbar">
-            <span class="navitem active"> Home </span>
-            <span class="navitem"> About </span>
-            <span class="navitem"> Songs </span>
-        </div>
+    <div style="height:10px; width:10px"></div>
+    <div class="contentpane">
+      <ul class="navbar">
+        <li class="navitem active"><a href="#home">Home</a></li>
+        <li class="navitem"><a href="#about">About</a></li>
+        <li class="navitem"><a href="#songs">Songs</a></li>
+      </ul>
+      <div id="home">
+        <div style="height:20px; width:10px"></div>
         <img src="splash-bottom.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
-	</div>
-	<div style="display:none">
-		By Joanna Swafford <br/>
-		<a href="https://plus.google.com/112090517120755825501
-?rel=author">Google</a>
-	</div>
+      </div>
+      <div id="about" style="display:none">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div id="songs" style="display:none">
+        <div style="float:left; width:300px">
+          <img style="float:left" class="thumb" src="balfe_cover.jpg" alt="Michael William Balfe's 'Come into the Garden Maud"/>
+          Come into the Garden Maud<br/>
+          By Michael William Balfe</br>
+          Based on <emph>Maud</emph><br/>
+          By Alfred Lord Tennyson <br/>
+          <br/>
+          Coming Soon<br/>
+        </div>
+        <div style="float:left; width:300px">
+          <img style="float:left" class="thumb" src="somervell_cover.jpg" alt="Sir Arthur Somervell's 'Come into the Garden Maud'"/>
+          Come into the Garden Maud<br/>
+          By Sir Arthur Somervell</br>
+          Based on <emph>Maud</emph><br/>
+          By Alfred Lord Tennyson <br/>
+          <br/>
+          Coming Soon<br/>
+        </div>
+
+          <li><img class="thumb" src="lostchordcover.jpg" alt="Sir Arthur Sullivan's 'The Lost Chord'"/>Sir Arthur Sullivan's "The Lost Chord"</li>
+          <li><img class="thumb" src="Nortoncover.jpg" alt="Caroline Norton's 'Juanita'" />Caroline Norton's "Juanita"</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div style="display:none">
+    By Joanna Swafford <br/>
+    <a href="https://plus.google.com/112090517120755825501
+    ?rel=author">Google</a>
+  </div>
 </body>
 <script type="text/javascript">
 
@@ -64,3 +145,11 @@
 
 </script>
 </html>
+
+
+
+Come into the Garden Maud
+By Michael William Balfe
+
+Coming Soon
+
