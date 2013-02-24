@@ -14,14 +14,34 @@
 		width: 612px;
 		border: 5px solid black;
 		box-shadow: 3px 3px 4px #000;
-	}
+  }
+    .navbar {
+        background-image: url("parchment.jpg");
+        width:100%;
+        border-top:1px solid black;
+        border-bottom: 1px solid black;
+    }
+    .navbar .navitem {
+        padding: 0px 10px;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+    .navbar .navitem.active {
+        background-image: url("active-parchment.jpg");
+    }
 	</style>
 	<title>Songs of the Victorians</title>
 	<meta name="description" content="Songs of the Victorians is an archive of parlor and art song settings of Victorian poems.">
 </head>
 <body>
 	<div class="centered">
-		<img src="splash.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
+		<img src="splash-top.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
+        <div class="navbar">
+            <span class="navitem active"> Home </span>
+            <span class="navitem"> About </span>
+            <span class="navitem"> Songs </span>
+        </div>
+        <img src="splash-bottom.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
 	</div>
 	<div style="display:none">
 		By Joanna Swafford <br/>
