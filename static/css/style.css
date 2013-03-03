@@ -1,35 +1,37 @@
 @font-face{
   font-family: 'cordalight';
-  src: url('/fonts/cordalig-webfont.eot');
-  src: url('/fonts/cordalig-webfont.eot') format('embedded-opentype'),
-  url('/fonts/cordalig-webfont.woff') format('woff'),
-  url('/fonts/cordalig-webfont.ttf') format('truetype'),
-  url('/fonts/cordalig-webfont.svg') format('svg');
+  src: url('fonts/cordalig-webfont.eot');
+  src: url('fonts/cordalig-webfont.eot') format('embedded-opentype'),
+  url('fonts/cordalig-webfont.woff') format('woff'),
+  url('fonts/cordalig-webfont.ttf') format('truetype'),
+  url('fonts/cordalig-webfont.svg') format('svg');
 }
 body {
-  /*background-color: #422d16;
-  body {*/
    background-color: #916c3b;
-   background-image: url("background.jpg");
-   background-size:170px auto;
+   background-image: url("../img/background.jpg");
+   background-size: 170px auto;
    font-family: cordalight, Times New Roman, Times;
- }
- .parchment {
-  background-image: url("parchment.jpg");
 }
-div.centered {
+
+.center-content {
   margin-left: auto;
   margin-right: auto;
   width: 612px;
   border: 5px solid black;
   box-shadow: 3px 3px 4px #000;
-  background-image: url("parchment.jpg");
+  background-image: url("../img/parchment.jpg");
 }
-.title {
+
+.center-content .header {
+
+}
+
+
+.title  {
   text-align: center;
 }
 #songs {
-  background-image: url("parchment.jpg");
+  background-image: url("../img/parchment.jpg");
 }
 .songs {
   margin:5px;
@@ -66,7 +68,7 @@ div.centered {
   text-decoration: none;
 }
 .navbar .navitem.ui-state-active {
-  background-image: url("active-parchment.jpg");
+  background-image: url("../img/active-parchment.jpg");
   color: black;
 }
 .thumb {
@@ -115,15 +117,20 @@ ul {
 }
 
 .article {
-  padding: 5px 25px;
+  padding: 10px 25px;
 }
 
 .footnote {
   font-size: 90%;
 }
 
-a {
+a:link, a:visited {
   color:rgb(128,81,44);
   text-decoration: underline;
   font-weight: bold;
 }
+div.box {
+    border: 4px solid rgb(128,81,44);
+    background-color: rgba(0,0,0,0);
+    position:absolute;
+  }
