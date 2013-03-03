@@ -5,8 +5,18 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /
+- url: /data
+  static_dir: data
+
+- url: /static
+  static_dir: static
+
+- url: /.*
   script: main.app
 
-- url: /
-  static_dir: site
+# - url: /
+#   static_dir: site
+
+libraries:
+- name: lxml
+  version: latest

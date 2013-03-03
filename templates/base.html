@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/css/style.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+  <title>
+    <%block name="title">
+    Songs of the Victorians
+    </%block>
+  </title>
+  <meta name="description" content="Songs of the Victorians is an archive of parlor and art song settings of Victorian poems."/>
+  <%block name="extra_head"/>
+</head>
+<body>
+  <div class="center-content">
+    <%block name="center_content">
+      <div class="header">
+        <%block name="header"/>
+      </div>
+      <div class="content">
+        <%block name="content"/>
+      </div>
+      <div class="footer">
+        <%block name="footer">
+          <div style="display:inline-block">
+            Developed by Joanna Swafford
+            <a style="display:none"
+            href="https://plus.google.com/112090517120755825501?rel=author">
+            </a><br/>
+            Powered by Augmented Notes
+          </div>
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" />
+          </a>
+        </%block>
+      </div>
+    </%block>
+  </div>
+</body>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38361168-1']);
+  _gaq.push(['_setDomainName', 'songsofthevictorians.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</html>

@@ -1,0 +1,96 @@
+<%inherit file="base.html"/>
+
+<%block name="extra_head">
+  <script type="text/javascript">
+  $(function() {
+    $(".tabs").tabs();
+    $(".tabs").bind("tabsactivate", function(event, ui) {
+      history.pushState(null, null, "#"+ui.newPanel.attr("id"));
+    });
+  })
+  </script>
+</%block>
+
+<%block name="header">
+    <img src="/static/img/splash-top.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
+    <div style="height:10px; width:10px"></div>
+</%block>
+
+<%block name="content">
+  <div class="tabs">
+    <ul class="navbar">
+      <li class="navitem active"><a href="#home">Home</a></li>
+      <li class="navitem"><a href="#about">About</a></li>
+      <li class="navitem"><a href="#songs">Songs</a></li>
+    </ul>
+    <div style="clear:both"></div>
+    <div id="home">
+      <div style="height:20px; width:10px"></div>
+      <img src="/static/img/splash-bottom.jpg" alt="Songs of the Victorians: An Archive Designed and developed by Joanna Swafford, Containing parlor and art song settings of Victorian poems, using Augmented Notes. Coming soon!" />
+    </div>
+    <div id="about">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <div id="songs">
+      <div class="songs">
+        <img style="float:left" class="thumb" src="/static/img/balfe_cover.jpg" alt="Michael William Balfe's 'Come into the Garden Maud"/>
+        "Come into the Garden Maud"<br/>
+        By Michael William Balfe</br>
+        Based on <i>Maud</i><br/>
+        By Alfred Lord Tennyson <br/>
+        <br/>
+        Coming Soon<br/>
+      </div>
+      <div class="songs">
+        <img style="float:left" class="thumb" src="/static/img/somervell_cover.jpg" alt="Sir Arthur Somervell's 'Come into the Garden Maud'"/>
+        "Come into the Garden Maud"<br/>
+        By Sir Arthur Somervell</br>
+        Based on <i>Maud</i><br/>
+        By Alfred Lord Tennyson <br/>
+        <br/>
+        Coming Soon<br/>
+      </div>
+      <div class="songs">
+        <img style="float:left" class="thumb" src="/static/img/lostchordcover.jpg" alt="Sir Arthur Sullivan's 'The Lost Chord'"/>
+        "The Lost Chord"<br/>
+        By Sir Arthur Sullivan<br/>
+        Based on "A Lost Chord"<br/>
+        By Adelaide Ann Procter<br/>
+        <br/>
+        Coming Soon<br/>
+      </div>
+      <div class="songs">
+        <img style="float:left" class="thumb" src="/static/img/Nortoncover1.jpg" alt="Caroline Norton's 'Juanita'" />
+        "Juanita"<br/>
+        By Caroline Norton<br/>
+        <br/>
+        <a href="/norton/archive.html">See the Archive</a> <br/>
+        <a href="/norton/analysis.html">See the Analysis</a> <br/>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+</%block>
