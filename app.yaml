@@ -8,5 +8,8 @@ handlers:
 - url: /
   script: main.app
 
+- url: /data
+  static_dir: data
+
 - url: /
   static_dir: site
