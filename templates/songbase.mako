@@ -24,6 +24,7 @@
     <li class="navitem active"><a href="/index.html">Home</a></li>
     <li class="navitem"><a href="/index.html#about">About</a></li>
     <li class="navitem"><a href="/index.html#songs">Songs</a></li>
+    <li class="navitem"><a href="/index.html#thanks">Special Thanks</a></li>
   </ul>
   </%block>
 </%block>

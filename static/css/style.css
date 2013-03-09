@@ -13,6 +13,9 @@ body {
    font-family: cordalight, Times New Roman, Times;
 }
 
+p {
+  line-height: 160%;
+}
 .center-content {
   margin-left: auto;
   margin-right: auto;
@@ -47,6 +50,7 @@ body {
   border-top:2px solid black;
   border-bottom: 2px solid black;
   text-align: center;
+  padding: 10px;
 }
 .navbar .navitem {
   padding: 0px 10px;
@@ -133,4 +137,7 @@ div.box {
     border: 4px solid rgb(128,81,44);
     background-color: rgba(0,0,0,0);
     position:absolute;
-  }
+}
+div.ui-widget-overlay {
+  background: #AAAAAA;
+}

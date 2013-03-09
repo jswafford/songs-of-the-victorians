@@ -24,7 +24,7 @@ $(function() {
       <audio style="width:100%" controls="controls" id='aplayer' preload='auto'>
         <source id="ogg" src="/data/${dset}/music.ogg" type="audio/ogg"/>
         <source id="mp3" src="/data/${dset}/music.mp3" type="audio/mp3"/>
-        Your browser does not support the audio tage
+        Your browser does not support the audio tag!
       </audio>
     </div>
     <div>

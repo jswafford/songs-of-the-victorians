@@ -69,11 +69,17 @@ AugmentedNotesUI.prototype.show_page = function(num) {
         //scales coordinates for box image
         var width_scale = imgw/original_image_w;
         var height_scale = imgh/original_image_h;
+        if (height_scale === 0) // height not specified
+            height_scale = width_scale;
+        else if (width_scale === 0) // width not specified
+            width_scale = height_scale;
         self.wrapper.empty();
         for (var i = 0; i < self.augnotes.getNumMeasures(page_num); i++) {
             var measure_id = new MeasureID(page_num, i);
             var measure = self.augnotes.getMeasure(measure_id);
             var box = $('<div class="box"></div>');
+            console.log(width_scale, height_scale);
+            window.foobar = self.image_elt;
             box.css({
                 display: "none",
                 left: measure.x*width_scale + "px",
@@ -127,4 +133,12 @@ AugmentedNotesUI.prototype.goToPrevMeasure = function() {
         var start_time = this.augnotes.getMeasure(prev_id).start;
     }
     this.setCurrentTime(start_time+.001);
+}
+
+AugmentedNotesUI.prototype.pause = function() {
+    this.audio_elt[0].pause();
+}
+
+AugmentedNotesUI.prototype.play = function() {
+    this.audio_elt[0].play();
 }

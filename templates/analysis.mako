@@ -1,10 +1,108 @@
 <%inherit file="songbase.mako"/>
 
+<%!
+import json
+%>
+<%block name="extra_head">
+  ${parent.extra_head()}
+    <script src="/static/js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/static/css/ui-lightness/jquery-ui-1.10.1.custom.min.css"/>
+
+    <script>
+    $(function() {
+      // Load augnotes data
+      window.augnotes = {
+        %for key, value in augdata.items():
+          ${key}:new AugmentedNotes(${json.dumps(value)}),
+        %endfor
+      };
+      // Initialize augnotes popups
+      window.media_popups = {};
+      $('.augnote-popup').each(function() {
+        var self=$(this);
+        var dset=self.attr("data-dset");
+        window.media_popups[dset] = self;
+        self.dialog({
+          autoOpen:false,
+          modal:true,
+          width:"450px",
+          beforeClose: function(event, ui) {
+            self.data("augnotes-ui").pause();
+          },
+          create: function(event, ui) {
+            var img_elt = self.find("img.score");
+            var audio_elt = self.find("audio.audio");
+            var augnotes_ui = new AugmentedNotesUI(augnotes[dset], img_elt, audio_elt);
+            self.data("augnotes-ui", augnotes_ui);
+          },
+          open: function(event, ui) {
+            self.data("augnotes-ui").setCurrentTime(0);
+            self.data("augnotes-ui").play();
+          }
+        });
+      })
+      $('.snippet-popup').each(function() {
+        var self=$(this);
+        var dset=self.attr("data-dset");
+        window.media_popups[dset] = self;
+        self.dialog({
+          autoOpen:false,
+          modal:true,
+          width:"450px",
+          beforeClose: function(event, ui) {
+            self.data("audio_elt")[0].pause();
+          },
+          create: function(event, ui) {
+            var audio_elt = self.find("audio.audio");
+            self.data("audio_elt", audio_elt);
+          },
+          open: function(event, ui) {
+            self.data("audio_elt")[0].currentTime = 0;
+            self.data("audio_elt")[0].play();
+          }
+        });
+      })
+    })
+    function show_augnote(name) {
+      window.media_popups[name].dialog("open");
+    }
+    function play_snippet(name) {
+      window.media_popups[name].dialog("open");
+    }
+    </script>
+</%block>
+
 <%block name="title">${thetitle}</%block>
 
 <%block name="content">
   <div class="article">
     <h2 class="title">${thetitle}</h2>
+
+    %for key in augdata:
+    <div class="augnote-popup" data-dset="${key}" style="display:none">
+      <div class="center-content" style="width:400px">
+        <div class="audtools">
+          <audio style="width:400px" controls="controls" class='audio' preload='auto'>
+            <source id="ogg" src="/data/${key}/music.ogg" type="audio/ogg"/>
+            <source id="mp3" src="/data/${key}/music.mp3" type="audio/mp3"/>
+            Your browser does not support the audio tag!
+          </audio>
+        </div>
+        <div>
+          <img class="score" src="/data/${key}/pages/1.jpg" width="400px" alt="Score Image"/>
+        </div>
+      </div>
+    </div>
+    %endfor
+    %for snippet in snippets:
+    <div class="snippet-popup" data-dset="${snippet}" style="display:none">
+      <audio style="width:400px; margin:auto" controls="controls" class='audio' preload='auto'>
+        <source id="ogg" src="/data/${snippet}/music.ogg" type="audio/ogg"/>
+        <source id="mp3" src="/data/${snippet}/music.mp3" type="audio/mp3"/>
+        Your browser does not support the audio tag!
+      </audio>
+    </div>
+    %endfor
 
     ${analysis_html}
 
