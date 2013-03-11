@@ -6,7 +6,7 @@ import json
 <%block name="extra_head">
   ${parent.extra_head()}
     <script src="/static/js/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/static/css/ui-lightness/jquery-ui-1.10.1.custom.min.css"/>
+    <link rel="stylesheet" href="/static/css/smoothness/jquery-ui-1.10.1.custom.min.css"/>
 
     <script>
     $(function() {
@@ -63,11 +63,11 @@ import json
         });
       })
     })
-    function show_augnote(name) {
-      window.media_popups[name].dialog("open");
+    function show_augnote(name, title) {
+      window.media_popups[name].dialog("option", "title", title).dialog("open");
     }
-    function play_snippet(name) {
-      window.media_popups[name].dialog("open");
+    function play_snippet(name, title) {
+      window.media_popups[name].dialog("option", "title", title).dialog("open");
     }
     </script>
 </%block>
@@ -80,7 +80,7 @@ import json
 
     %for key in augdata:
     <div class="augnote-popup" data-dset="${key}" style="display:none">
-      <div class="center-content" style="width:400px">
+      <div class="centered" style="width:400px">
         <div class="audtools">
           <audio style="width:400px" controls="controls" class='audio' preload='auto'>
             <source id="ogg" src="/data/${key}/music.ogg" type="audio/ogg"/>
@@ -96,11 +96,13 @@ import json
     %endfor
     %for snippet in snippets:
     <div class="snippet-popup" data-dset="${snippet}" style="display:none">
-      <audio style="width:400px; margin:auto" controls="controls" class='audio' preload='auto'>
-        <source id="ogg" src="/data/${snippet}/music.ogg" type="audio/ogg"/>
-        <source id="mp3" src="/data/${snippet}/music.mp3" type="audio/mp3"/>
-        Your browser does not support the audio tag!
-      </audio>
+      <div class="centered" style="width:400px">
+        <audio style="width:400px; margin:auto" controls="controls" class='audio' preload='auto'>
+          <source id="ogg" src="/data/${snippet}/music.ogg" type="audio/ogg"/>
+          <source id="mp3" src="/data/${snippet}/music.mp3" type="audio/mp3"/>
+          Your browser does not support the audio tag!
+        </audio>
+      </div>
     </div>
     %endfor
 

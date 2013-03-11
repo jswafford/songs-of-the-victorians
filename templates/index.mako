@@ -75,46 +75,66 @@
         <p>Bruce Holsinger: <a href="http://www.engl.virginia.edu/people/bh9n">http://www.engl.virginia.edu/people/bh9n</a></p>
         <p> Derek Scott: <a href="http://music.leeds.ac.uk/people/derek-scott/">http://music.leeds.ac.uk/people/derek-scott/</a></p>
         <p>Pery Roland and the MEI Developers: <a href="http://www2.lib.virginia.edu/innovation/mei/">http://www2.lib.virginia.edu/innovation/mei/</a></p>
-        <p>Daniel Lepage</p>
-
-
+        <p>Daniel Lepage: <a href="http://www.dplepage.com">http://www.dplepage.com</a></p>
+        <p>Inferlogic: <a href="http://inferlogic.deviantart.com/art/Black-White-Floral-Background-119926091">http://inferlogic.deviantart.com/art/Black-White-Floral-Background-119926091</a></p>
       </div>
     </div>
     <div id="songs">
-      <div class="songs">
-        <img style="float:left" class="thumb" src="/static/img/Nortoncover1.jpg" alt="Caroline Norton's 'Juanita'" />
-        "Juanita"<br/>
-        By Caroline Norton<br/>
-        <br/>
-        <a href="/norton/archive.html">See the Archive</a> <br/>
-        <a href="/norton/analysis.html">See the Analysis</a> <br/>
+      <div class="songs" style="position:relative">
+        <img style="float:left" class="thumb" src="/static/img/Nortoncover1.jpg" alt="Caroline Norton&#39;s &#39;Juanita&#39;">
+        <div class="links">
+          <div class="button">
+            <a href="/norton/archive.html">
+              View Archive
+            </a><br/>
+          </div>
+          <div class="button">
+            <a href="/norton/analysis.html">
+              View Analysis
+            </a>
+          </div>
+        </div>
+        <span class="title">"Juanita" (1853)</span><br/>
+        <span class="author">By Caroline Norton</span><br/><br/>
       </div>
+      <div class="hr"></div>
       <div class="songs">
-        <img style="float:left" class="thumb" src="/static/img/balfe_cover.jpg" alt="Michael William Balfe's 'Come into the Garden Maud"/>
-        "Come into the Garden Maud"<br/>
-        By Michael William Balfe</br>
-        Based on <i>Maud</i><br/>
+        <img style="float:left" class="thumb" src="/static/img/balfe_cover.jpg" alt="Michael William Balfe&#39;s &#39;Come into the Garden Maud">
+        <div class="links">
+          <span class="comingsoon">
+            Coming soon!
+          </span>
+        </div>
+        <span class="title">"Come into the Garden Maud" (1857)</span><br/>
+        <span class="author">By Michael William Balfe</span><br/><br/>
+        A setting from <i>Maud</i> &nbsp;(1855)<br/>
         By Alfred Lord Tennyson <br/>
-        <br/>
-        Coming Soon<br/>
       </div>
+      <div class="hr"></div>
       <div class="songs">
-        <img style="float:left" class="thumb" src="/static/img/somervell_cover.jpg" alt="Sir Arthur Somervell's 'Come into the Garden Maud'"/>
-        "Come into the Garden Maud"<br/>
-        By Sir Arthur Somervell</br>
-        Based on <i>Maud</i><br/>
+        <img style="float:left" class="thumb" src="/static/img/somervell_cover.jpg" alt="Sir Arthur Somervell&#39;s &#39;Come into the Garden Maud&#39;">
+        <div class="links">
+          <span class="comingsoon">
+            Coming soon!
+          </span>
+        </div>
+        <span class="title">"Come into the Garden Maud" (1898)</span><br/>
+        <span class="author">By Sir Arthur Somervell</span><br/><br/>
+        A setting from <i>Maud</i> &nbsp;(1855)<br/>
         By Alfred Lord Tennyson <br/>
-        <br/>
-        Coming Soon<br/>
       </div>
+      <div class="hr"></div>
       <div class="songs">
-        <img style="float:left" class="thumb" src="/static/img/lostchordcover.jpg" alt="Sir Arthur Sullivan's 'The Lost Chord'"/>
-        "The Lost Chord"<br/>
-        By Sir Arthur Sullivan<br/>
-        Based on "A Lost Chord"<br/>
+        <img style="float:left" class="thumb" src="/static/img/lostchordcover.jpg" alt="Sir Arthur Sullivan&#39;s &#39;The Lost Chord&#39;">
+        <div class="links">
+          <span class="comingsoon">
+            Coming soon!
+          </span>
+        </div>
+        <span class="title">"The Lost Chord" (1877)</span><br/>
+        <span class="author">By Sir Arthur Sullivan</span><br/><br/>
+        A setting of "A Lost Chord" &nbsp;(1858)<br/>
         By Adelaide Ann Procter<br/>
-        <br/>
-        Coming Soon<br/>
       </div>
       <div style="clear:both"></div>
     </div>

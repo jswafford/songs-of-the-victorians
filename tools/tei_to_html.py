@@ -9,16 +9,23 @@ def changeAll(doc, oldtag, newtag):
     tags = doc(oldtag).items()
     [t.replaceWith(str(newtag.html(t.html()))) for t in tags]
 
+def esc(s):
+    return s.replace("'", "\\'")
+
 def format_xref(node):
     doc = node.attr("doc")
     if doc.startswith('augnotes:'):
         doc = doc[9:]
-        x = pq('<a onclick="show_augnote(\''+doc+'\')">[<img src="/static/img/speaker.svg" height="14px"/>]</span>')
+        title = node.attr("title")
+        doc, title = map(esc, [doc, title])
+        x = pq('<a onclick="show_augnote(\''+doc+'\', \''+title+'\')">[<img src="/static/img/speaker.svg" height="14px"/>]</span>')
         node.replaceWith(str(x))
         return (doc, 'augnotes')
     elif doc.startswith('snippet:'):
         doc = doc[8:]
-        x = pq('<a onclick="play_snippet(\''+doc+'\')">[<img src="/static/img/speaker.svg" height="14px"/>]</span>')
+        title = node.attr("title")
+        doc, title = map(esc, [doc, title])
+        x = pq('<a onclick="play_snippet(\''+doc+'\', \''+title+'\')">[<img src="/static/img/speaker.svg" height="14px"/>]</span>')
         node.replaceWith(str(x))
         return (doc, 'snippet')
     return None, None
