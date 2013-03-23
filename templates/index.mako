@@ -48,11 +48,12 @@
         Songs of the Victorians will continue adding new songs for the foreseeable future, and it may in a few years be open to accepting submissions from other scholars interested in archivally preserving and analyzing parlor and art song settings of Victorian poems digitally.
         </p>
         <p>
-        To learn more about the creation of this site or to receive updates on its development schedule, please visit and subscribe to the development blog, <a href="http://anglophileinacademia.blogspot.com/">"Anglophile in Academia"</a>.
+        To learn more about the creation of this site or to receive updates on its development schedule, please visit and subscribe to the development blog, <a href="http://anglophileinacademia.blogspot.com/">"Anglophile in Academia"</a>.  Please email using the link at the bottom of the page to provide comments and feedback!
         </p>
+        <p>Please note: the audio clips may not work on older browsers. If you experience this problem, please upgrade your browser or try a different one.</p>
         <h2> About the Author</h2>
         <p>
-        Joanna Swafford is a PhD candidate in the English Department at the University of Virginia, specializing in Victorian poetry, sound studies, and digital humanities.  She has forthcoming articles in <i>Victorian Poetry</i>, <i>Victorian Review</i>, and the <i>Victorian Institute Journal's</i> Digital Annex, and she has held multiple digital humanities fellowships:  the Scholars' Lab Fellowship (2012-2013), the Praxis Program Fellowship (2011-2012), and the NINES fellowship (2010-2012).  Her dissertation, "Transgressive Tunes and the Music of Victorian Poetry," traces the gendered intermediations of poetry and music, and the final chapter on musical settings of Victorian poems will have an exclusively digital form drawn from this website.  She was also lead developer on the Praxis Program's project, <a href="http://prism.scholarslab.org/">Prism</a>, a tool for collective interpretation.  In addition to designing and developing Songs of the Victorians, she is also creating Augmented Notes, a website where users will upload scores, audio files, and measure information to produce websites like Songs of the Victorians, thus enabling scholars to peruse their own interdisciplinary projects.
+        Joanna Swafford is a PhD candidate in the English Department at the University of Virginia, specializing in Victorian poetry, sound studies, and digital humanities.  She has forthcoming articles in <i>Victorian Poetry</i>, <i>Victorian Review</i>, and the <i>Victorian Institute Journal's</i> Digital Annex, and she has held multiple digital humanities fellowships:  the Scholars' Lab Fellowship (2012-2013), the Praxis Program Fellowship (2011-2012), and the NINES fellowship (2010-2012).  Her dissertation, "Transgressive Tunes and the Music of Victorian Poetry," traces the gendered intermediations of poetry and music, and the final chapter on musical settings of Victorian poems will have an exclusively digital form drawn from this website.  She was also lead developer on the Praxis Program's project, <a href="http://prism.scholarslab.org/">Prism</a>, a tool for collective interpretation.  In addition to designing and developing Songs of the Victorians, she is also creating Augmented Notes, a website where users will upload scores, audio files, and measure information to produce websites like Songs of the Victorians, thus enabling scholars to pursue their own interdisciplinary projects.
         </p>
       </div>
     </div>
@@ -74,7 +75,7 @@
         <p>Andrew Stauffer: <a href="http://www.engl.virginia.edu/people/ams4k">http://www.engl.virginia.edu/people/ams4k</a></p>
         <p>Bruce Holsinger: <a href="http://www.engl.virginia.edu/people/bh9n">http://www.engl.virginia.edu/people/bh9n</a></p>
         <p> Derek Scott: <a href="http://music.leeds.ac.uk/people/derek-scott/">http://music.leeds.ac.uk/people/derek-scott/</a></p>
-        <p>Pery Roland and the MEI Developers: <a href="http://www2.lib.virginia.edu/innovation/mei/">http://www2.lib.virginia.edu/innovation/mei/</a></p>
+        <p>Perry Roland and the MEI Developers: <a href="http://www2.lib.virginia.edu/innovation/mei/">http://www2.lib.virginia.edu/innovation/mei/</a></p>
         <p>Daniel Lepage: <a href="http://www.dplepage.com">http://www.dplepage.com</a></p>
         <p>Inferlogic: <a href="http://inferlogic.deviantart.com/art/Black-White-Floral-Background-119926091">http://inferlogic.deviantart.com/art/Black-White-Floral-Background-119926091</a></p>
       </div>
