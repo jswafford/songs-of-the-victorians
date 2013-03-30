@@ -102,9 +102,14 @@
       <div class="songs">
         <img style="float:left" class="thumb" src="/static/img/balfe_cover.jpg" alt="Michael William Balfe&#39;s &#39;Come into the Garden Maud">
         <div class="links">
-          <span class="comingsoon">
-            Coming soon!
-          </span>
+          <div class="button">
+            <a href="/balfe/archive.html">
+              View Archive
+            </a><br/>
+          </div>
+          <div class="button disabled" title="Coming soon!">
+            View Analysis
+          </div>
         </div>
         <span class="title">"Come into the Garden Maud" (1857)</span><br/>
         <span class="author">By Michael William Balfe</span><br/><br/>

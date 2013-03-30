@@ -24,9 +24,9 @@ function AugNotesTimeEdit(augnotes) {
 					augnotes.pages[page_num].measure_ends[measure_num] = value;
 				}
 			})
-			var li = $('<li></li>');
-			li.append(input);
-			$("#time_list").append(li);
+			// var li = $('<li></li>');
+			// li.append(input);
+			$("#time_list").append(input);
 		}
 	}
 }

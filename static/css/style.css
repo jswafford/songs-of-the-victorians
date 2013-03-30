@@ -178,6 +178,11 @@ div.ui-widget-overlay {
 .button:hover {
   background-image: url("../img/active-parchment.jpg");
 }
+.button.disabled, .button.disabled:hover {
+  color: gray;
+  border-color: gray;
+  background-image: url("../img/parchment.jpg");
+}
 .comingsoon {
   font-size:110%;
   line-height: 70px;

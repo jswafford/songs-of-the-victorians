@@ -16,13 +16,11 @@ function MeasureID(page_num, measure_num) {
 
 // Defines AugmentedNotes class that stores data for a given dataset,
 // including name, number of pages, and all the measure data for pages
-// data_name - the name of the dataset
 // data - the entire saved dataset
 // pages - the list of measure numbers, times, and box positions for each page
 // num_pages - the number of pages
 // This class knows all of the data but doesn't do any of the UI stuff (no rendering).
 function AugmentedNotes(data) {
-	this.data_name = data.dataset_name;
 	this.data = data;
 	this.pages = data.pages;
 	this.num_pages = this.pages.length
@@ -36,14 +34,7 @@ AugmentedNotes.prototype.clampPageNum = function(num) {
 		return this.pages.length-1;
 	return num;
 }
-// Returns image path for a given page number
-AugmentedNotes.prototype.getPageUrl = function(num) {
-	return "/data/"+this.data_name+"/pages/"+(num+1)+".jpg"
-}
-// Returns music path for this mp3
-AugmentedNotes.prototype.getMusicUrl = function() {
-	return "/data/"+this.data_name +"/music.mp3"
-}
+
 // Returns the number of measures for a given page number
 AugmentedNotes.prototype.getNumMeasures = function(page_num) {
 	return this.pages[page_num].measure_ends.length;
@@ -77,7 +68,7 @@ AugmentedNotes.prototype.getNextMeasureID = function(measure_id) {
 		// If the measure number IS last on the page, but we're not on the last page,
 		// add one to the page num and set the measure num to 0.
 		return new MeasureID(measure_id.page_num+1, 0);
-	} else { 
+	} else {
 		// If we're on the the last measure of the last page, stay put.
 		return new MeasureID(measure_id.page_num, measure_id.measure_num);
 	}

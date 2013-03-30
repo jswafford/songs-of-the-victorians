@@ -9,9 +9,9 @@ import json
 $(function() {
   window.augmented_notes_data = ${json.dumps(data)};
   window.augnotes = new AugmentedNotes(augmented_notes_data);
-  var img_elt = $("img.score");
+  var score_div = $(".score-div");
   var audio_elt = $("audio#aplayer");
-  window.augnotes_ui = new AugmentedNotesUI(augnotes, img_elt, audio_elt);
+  window.augnotes_ui = new AugmentedNotesUI(augnotes, score_div, audio_elt);
 });
   </script>
 </%block>
@@ -28,10 +28,17 @@ $(function() {
       </audio>
     </div>
     <div>
-      <img class="score" src="/data/${dset}/pages/1.jpg" width="100%" alt="Scan">
-      <h3>Credits and Publication Information</h3>
-      <p>Norton, Caroline. "Juanita." London: Chappell, 1853.</p>
-        <p>"Juanita" by Caroline Norton performed by Anthony Rolfe Johnson (tenor) and Graham Johnson (piano). Courtesy of Hyperion Records Ltd, London. <a href="http://www.hyperion-records.co.uk/al.asp?al=CDH55159">http://www.hyperion-records.co.uk/al.asp?al=CDH55159</a></p>
+      <div class="score-div">
+        % for i in range(npages):
+          <div class="score-page" ${'style="display:none"' if i !=0 else ''}>
+            <img class="score" src="/data/${dset}/pages/${i+1}.jpg" width="542px" alt="Page ${i+1}"/>
+          </div>
+        % endfor
+      </div>
+      % if credits:
+        <h3>Credits and Publication Information</h3>
+        ${credits}
+      %endif
     </div>
   </div>
 </%block>
