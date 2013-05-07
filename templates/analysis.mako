@@ -74,7 +74,7 @@ import json
     </script>
 </%block>
 
-<%block name="title">${thetitle}</%block>
+<%block name="title">${raw_title}</%block>
 
 <%block name="content">
   <div class="article">

@@ -159,6 +159,7 @@ div.ui-widget-overlay {
 }
 
 .button {
+  display:block;
   padding: 6px;
   text-align: center;
   /*height:35px;*/
@@ -170,7 +171,7 @@ div.ui-widget-overlay {
   font-size:100%;
   /*line-height: 35px*/
 }
-.button a, .button a:visited {
+a.button, a.button:visited {
   /*color: #e1cbb8;*/
   color: black;
   text-decoration: none;
@@ -198,6 +199,11 @@ div.ui-widget-overlay {
   top:50%;
   height:70px;
   margin-top:-35px;
+}
+
+.songs .links.has3 {
+  height:110px;
+  margin-top:-55px;
 }
 
 

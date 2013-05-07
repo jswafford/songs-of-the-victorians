@@ -97,6 +97,7 @@ class Page(Span):
     def __init__(self, image, measures):
         self.image = image
         self.measures = measures
+        self.n_measures = len(measures)
         start = measures[0].start
         end = measures[-1].end
         Span.__init__(self, start, end)
@@ -116,6 +117,16 @@ class Score(object):
         self.ogg = self.mp3.replace("mp3", "ogg")
         self.pages = pages
         self.data = data
+
+    def get_measure(self, mnum):
+        measures_so_far = 0
+        for page in self.pages:
+            if mnum < measures_so_far + page.n_measures:
+                break
+            measures_so_far += page.n_measures
+        else:
+            raise Exception("No measure number {0}".format(mnum))
+        return page.measures[mnum-measures_so_far]
 
 def load(dirname):
     root = os.path.abspath(dirname)
@@ -139,7 +150,7 @@ def draw(page):
     im.show()
 
 @app.subcommand()
-def crop1(input_dir, output_dir, start, end, dset_name):
+def crop1(input_dir, output_dir, start, end):
     # Get input folder, output folder, bounds
     start = float(start)
     end = float(end)
@@ -182,10 +193,21 @@ def crop1(input_dir, output_dir, start, end, dset_name):
     d = {}
     d['measure_ends'] = [m.end for m in new_page.measures]
     d['measure_bounds'] = [m.bounds for m in new_page.measures]
-    d = dict(
-        title=score.data['title'],
-        dataset_name=dset_name, pages=[d])
+    d = dict(title=score.data['title'], pages=[d])
     json.dump(d, open(output_dir+"/data.js", 'w'))
+
+@app.subcommand()
+def crop_measures(input_dir, output_dir, mstart, mend):
+    score = load(input_dir)
+    start = score.get_measure(int(mstart)-1).start
+    end = score.get_measure(int(mend)-1).end
+    crop1(input_dir, output_dir, start, end)
+
+@app.subcommand()
+def info(input_dir, mnum):
+    score = load(input_dir)
+    m = score.get_measure(int(mnum)-1)
+    print "Measure {0} goes from {1} to {2}".format(mnum, m.start, m.end)
 
 @app.subcommand()
 def all_crops(input_dir):

@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 import webapp2
 from mako.lookup import TemplateLookup
@@ -26,6 +27,7 @@ class AnalysisPage(webapp2.RequestHandler):
         template = templates.get_template("analysis.mako")
         data = json.loads(open(here+"/data2/{0}/analysis.json".format(dataset_name)).read())
         title = data['title']
+        raw_title = re.sub("<.*?>", "", title)
         html = data['text']
         links = data['links']
         augdata = {}
@@ -36,7 +38,7 @@ class AnalysisPage(webapp2.RequestHandler):
             elif type == 'augnotes':
                 augdata[dset] = get_data(dset)
         html = template.render(thetitle=title, analysis_html=html,
-            augdata=augdata, snippets=snippets)
+            augdata=augdata, snippets=snippets, raw_title=raw_title)
         self.response.write(html)
 
 class ArchivePage(webapp2.RequestHandler):

@@ -1,13 +1,14 @@
 '''
-This parses MEI files and outputs box data.
-Usage: python parse_mei.py <mei_file> <dataset_name>
+This parses TEI files and outputs box data.
+Usage: python tei_to_html.py <tei_file> > <json_file>
 '''
 from pyquery import PyQuery as pq
 
 
 def changeAll(doc, oldtag, newtag):
-    tags = doc(oldtag).items()
-    [t.replaceWith(str(newtag.html(t.html()))) for t in tags]
+    tags = list(doc(oldtag).items())
+    for t in tags:
+        t.replaceWith(str(newtag.html(t.html())))
 
 def esc(s):
     return s.replace("'", "\\'")
@@ -32,9 +33,10 @@ def format_xref(node):
 
 def fix_tei(tei):
     doc = pq(tei).remove_namespaces()
-    title = doc("title").text()
+    title = pq(doc("title").html()).remove_namespaces()
+    changeAll(title, "hi", pq("<i>"))
     author = doc("author").text()
-    text = pq(doc("text").html())
+    text = pq(doc("text").html()).remove_namespaces()
     changeAll(text, "hi", pq("<i>"))
     changeAll(text, "lg l", pq("<div>"))
     changeAll(text, "lg", pq("<blockquote>"))
@@ -58,5 +60,5 @@ if __name__ == '__main__':
     import sys
     import json
     title, author, text, links = fix_tei(open(sys.argv[1]).read())
-    print json.dumps(dict(title=title, author=author, text=str(text), links=links))
+    print json.dumps(dict(title=str(title), author=author, text=str(text), links=links))
 

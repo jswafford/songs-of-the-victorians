@@ -7,6 +7,9 @@
     $(".tabs").bind("tabsactivate", function(event, ui) {
       history.pushState(null, null, "#"+ui.newPanel.attr("id"));
     });
+    $(".button").click(function() {
+      $('a', this).click();
+    })
   })
   </script>
 </%block>
@@ -84,16 +87,12 @@
       <div class="songs" style="position:relative">
         <img style="float:left" class="thumb" src="/static/img/Nortoncover1.jpg" alt="Caroline Norton&#39;s &#39;Juanita&#39;">
         <div class="links">
-          <div class="button">
-            <a href="/norton/archive.html">
-              View Archive
-            </a><br/>
-          </div>
-          <div class="button">
-            <a href="/norton/analysis.html">
-              View Analysis
+            <a class="button" href="/norton/analysis.html">
+              Music Analysis
             </a>
-          </div>
+            <a class="button" href="/norton/archive.html">
+              Archive
+            </a>
         </div>
         <span class="title">"Juanita" (1853)</span><br/>
         <span class="author">By Caroline Norton</span><br/><br/>
@@ -101,15 +100,16 @@
       <div class="hr"></div>
       <div class="songs">
         <img style="float:left" class="thumb" src="/static/img/balfe_cover.jpg" alt="Michael William Balfe&#39;s &#39;Come into the Garden Maud">
-        <div class="links">
-          <div class="button">
-            <a href="/balfe/archive.html">
-              View Archive
-            </a><br/>
-          </div>
-          <div class="button disabled" title="Coming soon!">
-            View Analysis
-          </div>
+        <div class="links has3">
+            <a class="button" href="/tennyson/analysis.html">
+              Poem Analysis
+          </a>
+          <a class="button" href="/balfe/analysis.html">
+            Music Analysis
+          </a>
+          <a class ="button" href="/balfe/archive.html">
+            Archive
+          </a>
         </div>
         <span class="title">"Come into the Garden Maud" (1857)</span><br/>
         <span class="author">By Michael William Balfe</span><br/><br/>
