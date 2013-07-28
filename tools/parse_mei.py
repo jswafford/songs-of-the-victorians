@@ -1,6 +1,6 @@
 '''
 This parses MEI files and outputs box data.
-Usage: python parse_mei.py <mei_file> <dataset_name>
+Usage: python parse_mei.py <mei_file>
 '''
 from pyquery import PyQuery as pq
 
@@ -30,7 +30,7 @@ def extract_box_pos(mei):
         page_data.append(measure_bounds)
     return page_data
 
-def import_mei(filename, dataset_name):
+def import_mei(filename):
     '''Given an MEI file, output augnotes JSON data.'''
     mei = open(filename).read()
     boxes = extract_box_pos(mei)
@@ -40,7 +40,6 @@ def import_mei(filename, dataset_name):
     for page_of_boxes in boxes:
         pages.append(dict(measure_bounds = page_of_boxes, measure_ends=[None]*len(page_of_boxes)))
     data = dict(
-        dataset_name = dataset_name,
         title = title,
         pages = pages)
     return data
@@ -61,10 +60,10 @@ if __name__ == '__main__':
     import json
     import glob
     filename = sys.argv[1]
-    dataset_name = sys.argv[2]
+
     if os.path.isdir(filename):
         names = glob.glob(filename+"/exist/db/contents/sources/edirom_source_*.xml")
         if len(names) != 1:
             raise Exception("Cannot get mei file from {0}".format(filename))
         filename = names[0]
-    print json.dumps(import_mei(filename, dataset_name))
+    print json.dumps(import_mei(filename))

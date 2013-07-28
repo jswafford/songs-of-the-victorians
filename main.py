@@ -51,6 +51,10 @@ class ArchivePage(webapp2.RequestHandler):
             <p>Balfe, Michael William. "Come into the Garden, Maud." London: Boosey & Songs, 1857. Courtesy of the British Library.</p>
             <p>"Come into the Garden, Maud" by Michael William Balfe performed by Derek Scott (tenor and piano). Courtesy of Derek Scott.</p>
         ''',
+        sullivan = '''
+            <p>Sullivan, Arthur.  "The Lost Chord." "The Lost Chord." London:  Boosey &amp; Co, 1877.   Courtesy of the National Library of Australia. &lt; <ref target="http://nla.gov.au/nla.mus-an7686876">http://nla.gov.au/nla.mus-an7686876</ref>&gt;</p>
+            <p>"The Lost Chord" by Sir Arthur Sullivan performed by Derek Scott (tenor and piano). Courtesy of Derek Scott.</p>
+        ''',
     )
 
     def get(self, dataset_name):

@@ -215,7 +215,7 @@ def all_crops(input_dir):
     in_parent = os.path.dirname(os.path.normpath(input_dir))
     in_name = os.path.basename(os.path.normpath(input_dir))
     for name, (start, end) in data.items():
-        output_dir = os.path.join(in_parent, in_name + "_" + name)
+        output_dir = os.path.join(in_parent, in_name + name)
         crop1(input_dir, output_dir, start, end)
 
 @app.subcommand()
