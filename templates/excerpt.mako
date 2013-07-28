@@ -31,8 +31,8 @@ import json
   <div class="center-content">
     <div class="audtools">
       <audio style="width:612px" controls="controls" id='aplayer' preload='auto' autoplay>
-        <source id="ogg" src="/data/${dset}/music.ogg" type="audio/ogg"/>
         <source id="mp3" src="/data/${dset}/music.mp3" type="audio/mp3"/>
+        <source id="ogg" src="/data/${dset}/music.ogg" type="audio/ogg"/>
         Your browser does not support the audio tag!
       </audio>
     </div>

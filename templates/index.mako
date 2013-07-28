@@ -131,11 +131,14 @@
       </div>
       <div class="hr"></div>
       <div class="songs">
-        <img style="float:left" class="thumb" src="/static/img/lostchordcover.jpg" alt="Sir Arthur Sullivan&#39;s &#39;The Lost Chord&#39;">
+        <img style="float:left" class="thumb" src="/static/img/sullivan_cover.jpg" alt="Sir Arthur Sullivan&#39;s &#39;The Lost Chord&#39;">
         <div class="links">
-          <span class="comingsoon">
-            Coming soon!
-          </span>
+            <a class="button" href="/sullivan/analysis.html">
+              Music Analysis
+            </a>
+            <a class="button" href="/sullivan/archive.html">
+              Archive
+            </a>
         </div>
         <span class="title">"The Lost Chord" (1877)</span><br/>
         <span class="author">By Sir Arthur Sullivan</span><br/><br/>

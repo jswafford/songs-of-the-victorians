@@ -86,8 +86,8 @@ import json
         <div class="centered" style="width:400px">
           <div class="audtools">
             <audio style="width:400px" controls="controls" class='audio' preload='auto'>
-              <source id="ogg" src="/data/${key}/music.ogg" type="audio/ogg"/>
               <source id="mp3" src="/data/${key}/music.mp3" type="audio/mp3"/>
+              <source id="ogg" src="/data/${key}/music.ogg" type="audio/ogg"/>
               Your browser does not support the audio tag!
             </audio>
           </div>
@@ -103,8 +103,8 @@ import json
       <div class="snippet-popup" data-dset="${snippet}" style="display:none">
         <div class="centered" style="width:400px">
           <audio style="width:400px; margin:auto" controls="controls" class='audio' preload='auto'>
-            <source id="ogg" src="/data/${snippet}/music.ogg" type="audio/ogg"/>
             <source id="mp3" src="/data/${snippet}/music.mp3" type="audio/mp3"/>
+            <source id="ogg" src="/data/${snippet}/music.ogg" type="audio/ogg"/>
             Your browser does not support the audio tag!
           </audio>
         </div>
