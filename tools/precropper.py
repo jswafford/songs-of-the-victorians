@@ -61,15 +61,22 @@ def stack_ims(*ims):
         y += im.size[1]
     return result
 
-def crop_vid(src, dst, start, duration, codec=None):
+def crop_vid(src, dst, start, duration, codec=None, fadeout=0):
     '''Crop the video src from start for duration, saving to dst.
 
     Times should be in seconds or as strings that FFMPEG recognizes, e.g.
     1:05:11
     '''
     cmd = "ffmpeg -y -i {src} -ss {start} -t {duration} {dst}"
+    if fadeout:
+        raise Exception("Fadeout not working yet.")
+        fadestart = duration
+        duration = duration + fadeout
+        cmd = cmd.replace("-t", "-af afade=t=out:st={fadestart}:d={fadeout} -t")
     if codec:
         cmd = cmd.replace("-t", "-codec {codec} -t")
+    print cmd.format(**locals())
+    import sys; sys.exit(1)
     os.system(cmd.format(**locals()))
 
 class Span(object):

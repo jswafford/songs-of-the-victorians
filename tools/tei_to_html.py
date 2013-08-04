@@ -43,9 +43,9 @@ def fix_tei(tei):
     changeAll(text, "q", pq("<blockquote>"))
     for i, note in enumerate(text("note").items()):
         n = i+1
-        tmp = "<div class='footnote'><a name='foot{0}'></a>{0}. {1} <a href='#foot{0}-back'>&uarr;</a></div>".format(n, note("p").eq(0).html())
+        tmp = u"<div class='footnote'><a name='foot{0}'></a>{0}. {1} <a href='#foot{0}-back'>&uarr;</a></div>".format(n, note("p").eq(0).html())
         text.append(tmp)
-        l = "<sup><a href='#foot{0}' name='foot{0}-back'>{0}</a></sup>".format(n)
+        l = u"<sup><a href='#foot{0}' name='foot{0}-back'>{0}</a></sup>".format(n)
         note.replaceWith(l)
     links = {}
     for node in text('xref').items():

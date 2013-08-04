@@ -119,10 +119,16 @@
       <div class="hr"></div>
       <div class="songs">
         <img style="float:left" class="thumb" src="/static/img/somervell_cover.jpg" alt="Sir Arthur Somervell&#39;s &#39;Come into the Garden Maud&#39;">
-        <div class="links">
-          <span class="comingsoon">
-            Coming soon!
-          </span>
+        <div class="links has3">
+            <a class="button" href="/tennyson/analysis.html">
+              Poem Analysis
+          </a>
+          <a class="button" href="/somervell/analysis.html">
+            Music Analysis
+          </a>
+          <a class ="button" href="/somervell/archive.html">
+            Archive
+          </a>
         </div>
         <span class="title">"Come into the Garden Maud" (1898)</span><br/>
         <span class="author">By Sir Arthur Somervell</span><br/><br/>
