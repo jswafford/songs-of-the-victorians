@@ -22,7 +22,7 @@
 <%block name="content">
   <div class="tabs">
     <ul class="navbar">
-      <li class="navitem active"><a href="#home">Home</a></li>
+      <li class="navitem"><a href="#home">Home</a></li>
       <li class="navitem"><a href="#about">About</a></li>
       <li class="navitem"><a href="#songs">Songs</a></li>
       <li class="navitem"><a href="#thanks">Special Thanks</a></li>

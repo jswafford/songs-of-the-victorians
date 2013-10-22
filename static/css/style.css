@@ -25,6 +25,13 @@ p {
   box-shadow: 3px 3px 4px #000;
   background-image: url("../img/parchment.jpg");
 }
+
+.center {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
 /*
 div.hr {
   border:0;
@@ -78,6 +85,7 @@ div.hr {
   color:black;
   text-decoration: none;
 }
+.navbar .navitem.active,
 .navbar .navitem.ui-state-active {
   background-image: url("../img/active-parchment.jpg");
   color: black;
@@ -95,6 +103,9 @@ ul {
   padding-left: 0;
   margin: 0;
   padding: 0;
+}
+a > img {
+  cursor:pointer;
 }
 #header-left {
   width:305px;
@@ -142,9 +153,13 @@ a:link, a:visited {
   font-weight: bold;
 }
 div.box {
+  visibility: hidden;
   border: 4px solid rgb(128,81,44);
   background-color: rgba(0,0,0,0);
   position:absolute;
+}
+div.box.selected {
+  visibility: visible;
 }
 div.ui-widget-overlay {
   background: #AAAAAA;

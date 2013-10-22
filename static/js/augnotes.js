@@ -90,16 +90,23 @@ AugmentedNotes.prototype.getMeasure = function(measure_id) {
 }
 //Returns MeasureID for given time
 AugmentedNotes.prototype.measureIDAtTime = function(time) {
+	// Keep track of the last measure we've encountered
+	var last_measure_id = null;
 	for (var page_num = 0; page_num < this.num_pages; page_num += 1) {
 		var page = this.pages[page_num];
+		if (page.measure_ends.length == 0)
+			continue;
 		for (var measure_num = 0; measure_num < page.measure_ends.length; measure_num += 1) {
+			last_measure_id = new MeasureID(page_num, measure_num);
 			var m_time = page.measure_ends[measure_num];
 			if (m_time === null || time < m_time)
-				return new MeasureID(page_num, measure_num);
+				return last_measure_id;
 		}
 	}
-	// Return MeasureID for last measure of last page
-	var last_index = this.num_pages-1;
-	var last_page = this.pages[last_index]
-	return new MeasureID(last_index, last_page.measure_ends.length-1);
+	// If the file has no measures whatsoever, return a measure id for the start
+	// of the file
+	if (last_measure_id == null)
+		return new MeasureID(0, 0);
+	// Otherwise, return the last measure of last page
+	return last_measure_id;
 }

@@ -31,7 +31,7 @@ AugmentedNotesUI.prototype.apply_boxes = function() {
     var self = this;
     this.score_div.find(".score-page").each(function(page_num) {
         var score_page = $(this);
-        var wrapper = $('<div style="position:relative"></div>');
+        var wrapper = $('<div class="box-container" style="position:relative"></div>');
         score_page.prepend(wrapper);
         var image_elt = $(this).find("img.score")
         getImageDimensions(image_elt.attr("src"), function(data) {
@@ -48,12 +48,12 @@ AugmentedNotesUI.prototype.apply_boxes = function() {
                 height_scale = width_scale;
             else if (width_scale === 0) // width not specified
                 width_scale = height_scale;
+            score_page.data("width_scale", width_scale).data("height_scale", height_scale);
             for (var i = 0; i < self.augnotes.getNumMeasures(page_num); i++) {
                 var measure_id = new MeasureID(page_num, i);
                 var measure = self.augnotes.getMeasure(measure_id);
                 var box = $('<div class="box"></div>');
                 box.css({
-                    display: "none",
                     left: measure.x*width_scale + "px",
                     top: measure.y*height_scale + "px",
                     width: measure.w*width_scale + "px",
@@ -63,6 +63,7 @@ AugmentedNotesUI.prototype.apply_boxes = function() {
             }
             // TODO ideally should do this once after all boxes are done.
             self.highlightCurrentTime();
+            $(self).trigger("AugmentedNotesUI-page-loaded", page_num);
         })
     })
 }
@@ -70,7 +71,7 @@ AugmentedNotesUI.prototype.apply_boxes = function() {
 AugmentedNotesUI.prototype.highlightMeasure = function(measure_id) {
     var old_id = this.current_measure_id;
     this.show_page(measure_id.page_num);
-    this.score_div.find(".score-page:visible").find(".box").hide().eq(measure_id.measure_num).show();
+    this.score_div.find(".score-page:visible").find(".box").removeClass('selected').eq(measure_id.measure_num).addClass('selected');
     this.current_measure_id = measure_id;
     if (old_id.measure_num !== this.current_measure_id.measure_num) {
         $(this).trigger("AugmentedNotesUI-measure_change");
@@ -106,6 +107,16 @@ AugmentedNotesUI.prototype.currentMeasureID = function() {
 
 AugmentedNotesUI.prototype.currentPageNum = function() {
     return this.currentMeasureID().page_num;
+}
+
+AugmentedNotesUI.prototype.goToNextPage = function() {
+    var nextPage = this.curr_page + 1;
+    return this.show_page(nextPage);
+}
+
+AugmentedNotesUI.prototype.goToPrevPage = function() {
+    var prevPage = this.curr_page - 1;
+    return this.show_page(prevPage);
 }
 
 AugmentedNotesUI.prototype.currentMeasureNum = function() {

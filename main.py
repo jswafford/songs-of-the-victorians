@@ -28,7 +28,10 @@ class AnalysisPage(webapp2.RequestHandler):
         data = json.loads(open(here+"/data2/{0}/analysis.json".format(dataset_name)).read())
         title = data['title']
         raw_title = re.sub("<.*?>", "", title)
-        html = data['text']
+        if 'text' in data:
+            pages = [data['text']]
+        else:
+            pages = data['pages']
         links = data['links']
         augdata = {}
         snippets = []
@@ -37,7 +40,7 @@ class AnalysisPage(webapp2.RequestHandler):
                 snippets.append(dset)
             elif type == 'augnotes':
                 augdata[dset] = get_data(dset)
-        html = template.render(thetitle=title, analysis_html=html,
+        html = template.render(thetitle=title, pages=pages,
             augdata=augdata, snippets=snippets, raw_title=raw_title)
         self.response.write(html)
 

@@ -72,12 +72,43 @@ import json
       window.media_popups[name].dialog("option", "title", title).dialog("open");
     }
     </script>
+
+  <script type="text/javascript">
+  $(function() {
+    var tabs = $(".tabs > div");
+    var links = $(".tabs > .navbar > li");
+    var id = window.location.hash;
+    var target = tabs.filter(id+"-tab");
+    if (!target.length) {
+      target = tabs.eq(0);
+      id = '#' + target.attr('id');
+    };
+    tabs.hide();
+    target.show();
+    links.filter('.nav-'+id.substr(1)).addClass('active');
+    links.click(function(event) {
+      event.preventDefault();
+      var id = $('a', this).attr('href');
+      tabs.hide();
+      $(id+"-tab").show();
+      history.pushState(null, null, id);
+      links.removeClass('active');
+      links.filter('.nav-'+id.substr(1)).addClass('active');
+      if ($(this).hasClass('bottom')) {
+        window.scrollTo(0);
+      }
+    });
+  })
+  </script>
 </%block>
 
 <%block name="title">${raw_title}</%block>
 
 <%block name="content">
   <div class="article">
+    % for i,page in enumerate(pages):
+      <a id="page${i+1}"></a>
+    % endfor
     <h2 class="title">${thetitle}</h2>
 
     <div style="display:none">
@@ -111,8 +142,26 @@ import json
       </div>
       %endfor
     </div>
-
-    ${analysis_html}
-
+    % if len(pages) == 1:
+      ${pages[0]}
+    % else:
+      <div class="tabs">
+        <ul class="navbar">
+          % for i,page in enumerate(pages):
+            <li class="navitem nav-page${i+1}"><a href="#page${i+1}">Page ${i+1}</a></li>
+          % endfor
+        </ul>
+        % for i,page in enumerate(pages):
+          <div id="page${i+1}-tab">
+            ${page}
+          </div>
+        % endfor
+        <ul class="navbar" style='margin-top:20px'>
+          % for i,page in enumerate(pages):
+            <li class="navitem nav-page${i+1} bottom"><a href="#page${i+1}">Page ${i+1}</a></li>
+          % endfor
+        </ul>
+      </div>
+    % endif
   </div>
 </%block>
