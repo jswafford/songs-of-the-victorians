@@ -31,34 +31,61 @@ def format_xref(node):
         return (doc, 'snippet')
     return None, None
 
+def basic_htmlify(node):
+    changeAll(node, 'hi[rend="bold"]', pq("<div class='center bold'>"))
+    changeAll(node, "hi", pq("<i>"))
+    changeAll(node, "lg l", pq("<div>"))
+    changeAll(node, "lg", pq("<blockquote>"))
+    changeAll(node, "q", pq("<blockquote>"))
+
+def extract_footnotes(node, prefix=""):
+    result = []
+    for i, note in enumerate(node("note").items()):
+        n = i+1
+        anchor = "{}{}".format(prefix, n)
+        tmp = u"<div class='footnote'><a name='foot{0}'></a>{2}. {1} <a href='#foot{0}-back'>&uarr;</a></div>".format(anchor, note("p").eq(0).html(), n)
+        l = u"<sup><a href='#foot{0}' name='foot{0}-back'>{1}</a></sup>".format(anchor, n)
+        note.replaceWith(l)
+        result.append(tmp)
+    return result
+
+def extract_links(node):
+    links = {}
+    for xref in node('xref').items():
+        doc, type = format_xref(xref)
+        if type == 'augnotes':
+            links[doc] = type
+        elif type == 'snippet' and links.get(doc) != 'augnotes':
+            links[doc] = type
+    return links
+
 def fix_tei(tei):
     doc = pq(tei).remove_namespaces()
     title = pq(doc("title").html()).remove_namespaces()
     changeAll(title, "hi", pq("<i>"))
     author = doc("author").text()
     text = pq(doc("text").html()).remove_namespaces()
-    changeAll(text, "hi", pq("<i>"))
-    changeAll(text, "lg l", pq("<div>"))
-    changeAll(text, "lg", pq("<blockquote>"))
-    changeAll(text, "q", pq("<blockquote>"))
-    for i, note in enumerate(text("note").items()):
-        n = i+1
-        tmp = u"<div class='footnote'><a name='foot{0}'></a>{0}. {1} <a href='#foot{0}-back'>&uarr;</a></div>".format(n, note("p").eq(0).html())
-        text.append(tmp)
-        l = u"<sup><a href='#foot{0}' name='foot{0}-back'>{0}</a></sup>".format(n)
-        note.replaceWith(l)
     links = {}
-    for node in text('xref').items():
-        doc, type = format_xref(node)
-        if type == 'augnotes':
-            links[doc] = type
-        elif type == 'snippet' and links.get(doc) != 'augnotes':
-            links[doc] = type
-    return title, author, text, links
+    if text.find('div[type="section"]'):
+        def process(i, elt):
+            elt = pq(elt)
+            basic_htmlify(elt)
+            for note in extract_footnotes(elt, prefix='{}-'.format(i)):
+                elt.append(note)
+            links.update(extract_links(elt))
+            return elt
+        pages = pq(text('div[type="section"]').map(process))
+        return title, author, map(pq, pages), links
+    else:
+        basic_htmlify(text)
+        for note in extract_footnotes(text):
+            text.append(note)
+        links = extract_links(text)
+        return title, author, [text], links
 
 if __name__ == '__main__':
     import sys
     import json
     title, author, text, links = fix_tei(open(sys.argv[1]).read())
-    print json.dumps(dict(title=str(title), author=author, text=str(text), links=links))
+    print json.dumps(dict(title=str(title), author=author, pages=map(str, text), links=links))
 

@@ -75,8 +75,6 @@ def crop_vid(src, dst, start, duration, codec=None, fadeout=0):
         cmd = cmd.replace("-t", "-af afade=t=out:st={fadestart}:d={fadeout} -t")
     if codec:
         cmd = cmd.replace("-t", "-codec {codec} -t")
-    print cmd.format(**locals())
-    import sys; sys.exit(1)
     os.system(cmd.format(**locals()))
 
 class Span(object):
