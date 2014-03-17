@@ -63,6 +63,14 @@ class ArchivePage(webapp2.RequestHandler):
             <p>Somervell, Arthur.  "Come into the Garden, Maud." <i>Cycle of Songs from Tennyson's Maud.</i>  London: Boosey & Co, 1898. Courtesy of the San Francisco Public Library.</p>
             <p>"Come into the garden, Maud" performed by David Wilson-Johnson (baritone) and David Owen Norris (piano). Courtesy of Hyperion Records Ltd, London. <a href="http://www.hyperion-records.co.uk/tw.asp?w=W1187&t=GBAJY8618709&al=W1187_66187&vw=dc">http://www.hyperion-records.co.uk/tw.asp?w=W1187&t=GBAJY8618709&al=W1187_66187&vw=dc</a></p>
         ''',
+        lanier = '''
+            <p>Lanier, Sidney.  "Break, Break, Break," ca. 1870. Fair manuscript copy from the Sidney Lanier Papers, courtesy of the Sheridan Libraries, Johns Hopkins University. </p>
+            <p>Performance by Joseph Roberts (baritone) and Jeremy Reger (piano). Recorded at Britton Recital Hall, University of Michigan School of Music, 2008. Producer: Michael Daugherty.  Engineer: Paul Dooley.</p>     
+        ''',
+        henschel = '''
+            <p>Henschel, George. "Break, Break, Break." <i>Songs from the Published Writings of Alfred Tennyson, Set to Music by Various Composers,</i> ed. W. G. Cusins (New York: Harper and Brothers, 1880). </p>
+            <p>Performance by Joseph Roberts (baritone) and Jeremy Reger (piano). Recorded at Britton Recital Hall, University of Michigan School of Music, 2008. Producer: Michael Daugherty.  Engineer: Paul Dooley. </p> 
+        ''',
     )
 
     def get(self, dataset_name):

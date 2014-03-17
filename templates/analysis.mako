@@ -95,7 +95,7 @@ import json
       links.removeClass('active');
       links.filter('.nav-'+id.substr(1)).addClass('active');
       if ($(this).hasClass('bottom')) {
-        window.scrollTo(0);
+        window.scrollTo(0, 300);
       }
     });
   })
@@ -112,7 +112,7 @@ import json
     <h2 class="title">${thetitle}</h2>
 
     <div style="display:none">
-      %for key in augdata:
+      %for key, value in augdata.items():
       <div class="augnote-popup" data-dset="${key}" style="display:none">
         <div class="centered" style="width:400px">
           <div class="audtools">
@@ -123,9 +123,11 @@ import json
             </audio>
           </div>
           <div class="score-div">
-            <div class="score-page">
-              <img class="score" src="/data/${key}/pages/1.jpg" width="400px" alt="Score Image"/>
-            </div>
+            % for i in range(len(value['pages'])):
+              <div class="score-page" style="display:none">
+                <img class="score" src="/data/${key}/pages/${i+1}.jpg" width="400px" alt="Score Image"/>
+              </div>
+            % endfor
           </div>
         </div>
       </div>

@@ -22,9 +22,16 @@ function AugmentedNotesUI(augnotes, score_div, audio_elt) {
     this.show_page(0);
     this.apply_boxes();
     var self = this;
-    this.audio_elt.on("timeupdate", function() {
+    self.audio_elt.on("timeupdate", function() {
         self.highlightCurrentTime(this.currentTime);
-    })
+    });
+    // self.audio_elt.one("canplaythrough", function() {
+    //     // workaround for apparent firefox bug?
+    //     var aud = self.audio_elt[0];
+    //     var x = aud.currentTime;
+    //     aud.currentTime = 1000;
+    //     aud.currentTime = x;
+    // });
 }
 
 AugmentedNotesUI.prototype.apply_boxes = function() {

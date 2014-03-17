@@ -37,6 +37,9 @@ def basic_htmlify(node):
     changeAll(node, "lg l", pq("<div>"))
     changeAll(node, "lg", pq("<blockquote>"))
     changeAll(node, "q", pq("<blockquote>"))
+    tags = list(node("graphic").items())
+    for t in tags:
+        t.replaceWith(str(pq("<img>").attr("src", t.attr("url")).html(t.html())))
 
 def extract_footnotes(node, prefix=""):
     result = []
